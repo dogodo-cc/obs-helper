@@ -29,9 +29,9 @@ export async function uploadFileOrFolder(obsClient: any, inputs: ObjectInputs): 
 
                 // 若总文件数大于1000，取消上传
                 const uploadListLength = uploadList.file.length + uploadList.folder.length;
-                if (uploadListLength > 1000) {
+                if (uploadListLength > 10000) {
                     core.setFailed(`local directory: '${localPath}' has ${uploadListLength} files and folders,`);
-                    core.setFailed(`please upload a directory include less than 1000 files and folders.`);
+                    core.setFailed(`please upload a directory include less than 10000 files and folders.`);
                     return;
                 }
 
